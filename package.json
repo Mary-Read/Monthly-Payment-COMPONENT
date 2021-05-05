@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "shipping",
   "version": "",
   "description": "",
   "author": "",
@@ -10,6 +10,7 @@
   "scripts": {
     "dev-server": "nodemon ./server/server.js localhost 8080",
     "dev-client": "webpack --watch",
+    "dev-seed": "node ./server/database/seed/seed.js",
     "client": "webpack"
   },
   "devDependencies": {
@@ -23,7 +24,9 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "faker": "^5.5.3",
+    "mongoose": "^5.12.7"
   },
   "babel": {
     "presets": [
