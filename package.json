@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "shipping",
   "version": "",
   "description": "",
   "author": "",
@@ -8,10 +8,33 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-  },
-  "dependencies": {
+    "dev-server": "nodemon ./server/server.js localhost 8080",
+    "dev-client": "webpack --watch",
+    "dev-seed": "node ./server/database/seed/seed.js",
+    "client": "webpack"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.31.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.5.3",
+    "mongoose": "^5.12.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-react-jsx"
+    ]
   }
 }
