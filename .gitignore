@@ -1,3 +1,6 @@
+# API KEYS
+server/configs/googleMaps.js
+
 # Logs
 logs
 *.log
