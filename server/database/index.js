@@ -1,17 +1,23 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/Shipping');
 
-let Schema = mongoose.Schema;
+const config = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+mongoose.connect('mongodb://localhost/Shipping', config);
+
+const { Schema } = mongoose;
 
 const storeSchema = new Schema({
   storeId: Number,
   address: String,
   storePhone: String,
   zip: String,
-  storeHrs: [{day: String, hrs: String}],
-  products: [{productId: Number, stock: Number, location: String}],
-})
+  coordinates: { lat: Number, lng: Number },
+  storeHrs: Object,
+  products: [{ id: Number, stock: Number, location: String }],
+});
 
-var Stores = mongoose.model('Stores', storeSchema)
+const Stores = mongoose.model('Stores', storeSchema);
 
-module.exports = Stores
+module.exports = Stores;
