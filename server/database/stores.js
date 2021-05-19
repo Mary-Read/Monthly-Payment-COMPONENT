@@ -76,9 +76,33 @@ const closestStore = (zipcode) => new Promise((resolve, reject) => {
     });
 });
 
+const closestStoresGeolocation = (geoLocation) => new Promise((resolve, reject) => {
+  getStores()
+    .then((stores) => {
+      closest.storesFinder(geoLocation, stores)
+        .then((storesData) => resolve(storesData));
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
+const closestStoreGeolocation = (geoLocation) => new Promise((resolve, reject) => {
+  getStores()
+    .then((stores) => {
+      closest.storeFinder(geoLocation, stores)
+        .then((storesData) => resolve(storesData));
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
 module.exports.getStores = getStores;
 module.exports.getStore = getStore;
 module.exports.getProducts = getProducts;
 module.exports.getProduct = getProduct;
 module.exports.closestStores = closestStores;
 module.exports.closestStore = closestStore;
+module.exports.closestStoresGeolocation = closestStoresGeolocation;
+module.exports.closestStoreGeolocation = closestStoreGeolocation;
