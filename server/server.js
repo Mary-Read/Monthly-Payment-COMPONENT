@@ -18,6 +18,7 @@ app.get(`${endpoint}/closestStores/:zipcode`, (req, res) => {
       res.status(400).send(`Error getting Stores: ${err}`);
     });
 });
+
 // CLOSEST STORE
 app.get(`${endpoint}/closestStore/:zipcode`, (req, res) => {
   db.closestStore(req.params.zipcode)
