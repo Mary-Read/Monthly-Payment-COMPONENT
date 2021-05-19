@@ -1,7 +1,9 @@
 /* eslint-disable global-require */
 /* eslint-disable import/extensions */
 import React from 'react';
-import { Mainbar, HeaderBox, Arrow, Search, Logo } from '../styled/BannerStyled.jsx';
+import {
+  Mainbar, HeaderBox, Arrow, Search, Logo,
+} from '../styled/BannerStyled.jsx';
 
 const Banner = () => (
   <>
@@ -42,7 +44,7 @@ const Banner = () => (
       <HeaderBox>
         <div>
           <form>
-            <Search type="search" placeholder="Search"/>
+            <Search type="search" placeholder="Search" />
           </form>
         </div>
       </HeaderBox>

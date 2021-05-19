@@ -61,7 +61,7 @@ const Logo = styled.a`
 
   /* Box */
   margin-left: 20px;
-`
+`;
 
 const Search = styled.input`
   /* Color & Background */
