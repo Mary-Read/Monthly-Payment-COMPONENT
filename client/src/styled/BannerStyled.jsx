@@ -37,24 +37,16 @@ const HeaderBox = styled.a`
 
 `;
 
-const Arrow = styled.img`
-  /* Size */
-  height: 24px;
-  width: 10px;
-
+const ArrowSpan = styled.span`
   /* Box */
-  margin-left: 2px;
+  margin-left: 5px;
 
   /* Positioning */
   vertical-align: middle 
-  display: inline;
+  
 `;
 
 const Logo = styled.a`
-  /* Size */
-  height: 100%;
-  width: 68px;
-
   /* Positioning */
   display: flex;
   vertical-align: middle 
@@ -81,10 +73,18 @@ const Search = styled.input`
 
 `;
 
+const LoginBox = styled.div`
+  /* Positioning */
+  vertical-align: middle; 
+  position: relative;
+
+`
+
 export {
   Mainbar,
   HeaderBox,
-  Arrow,
+  ArrowSpan,
   Search,
   Logo,
+  LoginBox
 };

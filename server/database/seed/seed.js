@@ -11,6 +11,7 @@ const createStores = () => {
     const obj = {};
     obj.storeId = i;
     obj.address = `${address.address1}, ${address.city}, ${address.state} ${address.postalCode}`;
+    obj.storeName = `${address.city}`;
     obj.storePhone = faker.phone.phoneNumber();
     obj.zip = address.postalCode;
     obj.coordinates = address.coordinates;

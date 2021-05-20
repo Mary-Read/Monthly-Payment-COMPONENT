@@ -11,6 +11,7 @@ const { Schema } = mongoose;
 const storeSchema = new Schema({
   storeId: Number,
   address: String,
+  storeName: String,
   storePhone: String,
   zip: String,
   coordinates: { lat: Number, lng: Number },
