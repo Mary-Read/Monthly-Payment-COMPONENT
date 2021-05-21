@@ -1,14 +1,29 @@
 const express = require('express');
 const db = require('./database/stores');
+const gm = require('./api/googleMaps')
 
 const app = express();
 
 app.use(express.static(`${__dirname}/../client/dist`));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 const port = 4000;
 const endpoint = '/shipping';
 
-// CLOSEST STORES
+// Zipcode
+app.post(`${endpoint}/zipcode`, (req, res) => {
+  gm.getZip(req.body)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(400).send(`Error getting zipcode: ${err}`);
+    });
+});
+
+// CLOSEST STORES (Zipcode)
 app.get(`${endpoint}/closestStores/:zipcode`, (req, res) => {
   db.closestStores(req.params.zipcode)
     .then((data) => {
@@ -19,9 +34,31 @@ app.get(`${endpoint}/closestStores/:zipcode`, (req, res) => {
     });
 });
 
-// CLOSEST STORE
+// CLOSEST STORES (Geolocation)
+app.post(`${endpoint}/closestStores`, (req, res) => {
+  db.closestStoresGeolocation(req.body)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(400).send(`Error getting Stores: ${err}`);
+    });
+});
+
+// CLOSEST STORE (Zipcode)
 app.get(`${endpoint}/closestStore/:zipcode`, (req, res) => {
   db.closestStore(req.params.zipcode)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(400).send(`Error getting Stores: ${err}`);
+    });
+});
+
+// CLOSEST STORE (Geolocation)
+app.post(`${endpoint}/closestStore`, (req, res) => {
+  db.closestStoreGeolocation(req.body)
     .then((data) => {
       res.status(200).send(data);
     })

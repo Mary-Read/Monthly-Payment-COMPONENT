@@ -2,44 +2,47 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import {
-  Mainbar, HeaderBox, Arrow, Search, Logo,
+  Mainbar, HeaderBox, ArrowSpan, Search, Logo, LoginBox
 } from '../styled/BannerStyled.jsx';
+import TargetLogo from '../svg/target-logo.svg'
+import Arrow from '../svg/arrow.svg'
+import UserCircle from '../svg/user-circle.svg'
 
 const Banner = () => (
   <>
     <Mainbar>
       <Logo>
-        <img alt="Target" src={require('../svg/target-logo.svg').default} />
+        <TargetLogo width={65} height={65} />
       </Logo>
       <HeaderBox>
         <span>Categories</span>
-        <span>
-          <Arrow alt="Arrow" src={require('../svg/arrow.svg').default} />
-        </span>
+        <ArrowSpan>
+          <Arrow width={10} height={24} />
+        </ArrowSpan>
       </HeaderBox>
       <HeaderBox>
         <span>Deals</span>
-        <span>
-          <Arrow alt="Arrow" src={require('../svg/arrow.svg').default} />
-        </span>
+        <ArrowSpan>
+          <Arrow width={10} height={24} />
+        </ArrowSpan>
       </HeaderBox>
       <HeaderBox>
         <span>What&apos;s New</span>
-        <span>
-          <Arrow alt="Arrow" src={require('../svg/arrow.svg').default} />
-        </span>
+        <ArrowSpan>
+          <Arrow width={10} height={24} />
+        </ArrowSpan>
       </HeaderBox>
       <HeaderBox>
         <span>Pickup &amp; Delivery</span>
-        <span>
-          <Arrow alt="Arrow" src={require('../svg/arrow.svg').default} />
-        </span>
+        <ArrowSpan>
+          <Arrow width={10} height={24} />
+        </ArrowSpan>
       </HeaderBox>
       <HeaderBox>
         <span>Categories</span>
-        <span>
-          <Arrow alt="Arrow" src={require('../svg/arrow.svg').default} />
-        </span>
+        <ArrowSpan>
+          <Arrow width={10} height={24} />
+        </ArrowSpan>
       </HeaderBox>
       <HeaderBox>
         <div>
@@ -48,17 +51,19 @@ const Banner = () => (
           </form>
         </div>
       </HeaderBox>
-      <HeaderBox>
-        <div>
-          <img alt="Target" src={require('../svg/user-circle.svg').default} />
-          <span>
-            <Arrow alt="Arrow" src={require('../svg/arrow.svg').default} />
-          </span>
-        </div>
-        <div>
-          <span>Sign In</span>
-        </div>
-      </HeaderBox>
+      {/* <HeaderBox>
+        <LoginBox>
+          <div>
+            <UserCircle width={10} height={10}  />
+          </div>
+          <div>
+            Sign In
+          </div>
+        </LoginBox>
+        <ArrowSpan>
+          <Arrow width={10} height={24} />
+        </ArrowSpan>
+      </HeaderBox> */}
     </Mainbar>
     <nav />
   </>
