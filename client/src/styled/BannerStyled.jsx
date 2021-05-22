@@ -78,7 +78,7 @@ const LoginBox = styled.div`
   vertical-align: middle; 
   position: relative;
 
-`
+`;
 
 export {
   Mainbar,
@@ -86,5 +86,5 @@ export {
   ArrowSpan,
   Search,
   Logo,
-  LoginBox
+  LoginBox,
 };

@@ -2,11 +2,11 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import {
-  Mainbar, HeaderBox, ArrowSpan, Search, Logo, LoginBox
+  Mainbar, HeaderBox, ArrowSpan, Search, Logo,
 } from '../styled/BannerStyled.jsx';
-import TargetLogo from '../svg/target-logo.svg'
-import Arrow from '../svg/arrow.svg'
-import UserCircle from '../svg/user-circle.svg'
+import TargetLogo from '../svg/target-logo.svg';
+import Arrow from '../svg/arrow.svg';
+// import UserCircle from '../svg/user-circle.svg';
 
 const Banner = () => (
   <>

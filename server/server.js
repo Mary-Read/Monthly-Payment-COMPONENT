@@ -1,19 +1,30 @@
 const express = require('express');
+const path = require('path');
+const cors = require('cors');
 const db = require('./database/stores');
-const gm = require('./api/googleMaps')
+const gm = require('./api/googleMaps');
+
+const router = express.Router();
 
 const app = express();
+const dirPath = path.join(__dirname, '/../client/dist');
 
-app.use(express.static(`${__dirname}/../client/dist`));
+app.use('/shipping/', router);
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.static(dirPath));
+
+app.get(['/', '/p/*'], (req, res) => {
+  res.sendFile(path.join(dirPath, 'index.html'));
+});
+
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
+router.use(cors());
 
 const port = 4000;
-const endpoint = '/shipping';
 
 // Zipcode
-app.post(`${endpoint}/zipcode`, (req, res) => {
+router.post('/zipcode', (req, res) => {
   gm.getZip(req.body)
     .then((data) => {
       res.status(200).send(data);
@@ -24,7 +35,7 @@ app.post(`${endpoint}/zipcode`, (req, res) => {
 });
 
 // CLOSEST STORES (Zipcode)
-app.get(`${endpoint}/closestStores/:zipcode`, (req, res) => {
+router.get('/closestStores/:zipcode', (req, res) => {
   db.closestStores(req.params.zipcode)
     .then((data) => {
       res.status(200).send(data);
@@ -35,7 +46,7 @@ app.get(`${endpoint}/closestStores/:zipcode`, (req, res) => {
 });
 
 // CLOSEST STORES (Geolocation)
-app.post(`${endpoint}/closestStores`, (req, res) => {
+router.post('/closestStores', (req, res) => {
   db.closestStoresGeolocation(req.body)
     .then((data) => {
       res.status(200).send(data);
@@ -46,7 +57,7 @@ app.post(`${endpoint}/closestStores`, (req, res) => {
 });
 
 // CLOSEST STORE (Zipcode)
-app.get(`${endpoint}/closestStore/:zipcode`, (req, res) => {
+router.get('/closestStore/:zipcode', (req, res) => {
   db.closestStore(req.params.zipcode)
     .then((data) => {
       res.status(200).send(data);
@@ -57,7 +68,7 @@ app.get(`${endpoint}/closestStore/:zipcode`, (req, res) => {
 });
 
 // CLOSEST STORE (Geolocation)
-app.post(`${endpoint}/closestStore`, (req, res) => {
+router.post('/closestStore', (req, res) => {
   db.closestStoreGeolocation(req.body)
     .then((data) => {
       res.status(200).send(data);
@@ -68,7 +79,7 @@ app.post(`${endpoint}/closestStore`, (req, res) => {
 });
 
 // ALL STORES
-app.get(`${endpoint}/stores`, (req, res) => {
+router.get('/stores', (req, res) => {
   db.getStores()
     .then((data) => {
       res.status(200).send(data);
@@ -79,7 +90,7 @@ app.get(`${endpoint}/stores`, (req, res) => {
 });
 
 // STORE INFO
-app.get(`${endpoint}/:storeId`, (req, res) => {
+router.get('/:storeId', (req, res) => {
   db.getStore(req.params.storeId)
     .then((data) => {
       res.status(200).send(data);
@@ -90,7 +101,7 @@ app.get(`${endpoint}/:storeId`, (req, res) => {
 });
 
 // STORES PRODUCTS
-app.get(`${endpoint}/:storeId/all`, (req, res) => {
+router.get('/:storeId/all', (req, res) => {
   db.getProducts(req.params.storeId)
     .then((data) => {
       res.status(200).send(data);
@@ -101,7 +112,7 @@ app.get(`${endpoint}/:storeId/all`, (req, res) => {
 });
 
 // STORES SPECIFIC PRODUCT INFO
-app.get(`${endpoint}/:storeId/:productId`, (req, res) => {
+router.get('/:storeId/:productId', (req, res) => {
   db.getProduct(req.params.storeId, req.params.productId)
     .then((data) => {
       res.status(200).send(data);

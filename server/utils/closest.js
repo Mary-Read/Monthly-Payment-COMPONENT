@@ -1,19 +1,24 @@
 const distanceCalc = require('./distance');
 
-const storesFinder = ((location, storesData) => new Promise((resolve) => {
+const storesFinder = ((location, storesData) => new Promise((resolve, reject) => {
   const stores = storesData.slice();
   const storesOut = [];
-  const { lat } = location;
-  const { lng } = location;
-  for (let i = 0; i < stores.length; i += 1) {
-    // eslint-disable-next-line no-underscore-dangle
-    storesOut.push({ ...stores[i] }._doc);
-    const distance = distanceCalc(lat, lng,
-      storesOut[i].coordinates.lat, storesOut[i].coordinates.lng);
-    storesOut[i].distance = distance;
+  if (location) {
+    const { lat } = location;
+    const { lng } = location;
+    for (let i = 0; i < stores.length; i += 1) {
+      // eslint-disable-next-line no-underscore-dangle
+      storesOut.push({ ...stores[i] }._doc);
+      const distance = distanceCalc(lat, lng,
+        storesOut[i].coordinates.lat, storesOut[i].coordinates.lng);
+      storesOut[i].distance = distance;
+    }
+    storesOut.sort((a, b) => a.distance - b.distance);
+    resolve(storesOut.slice(0, 20));
+  } else {
+    // eslint-disable-next-line prefer-promise-reject-errors
+    reject('location undefined');
   }
-  storesOut.sort((a, b) => a.distance - b.distance);
-  resolve(storesOut.slice(0, 20));
 }));
 
 const storeFinder = ((location, storesData) => new Promise((resolve) => {
