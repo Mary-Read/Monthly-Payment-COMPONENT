@@ -1,9 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import {
-  Container, B1, B2, B3, B1S1U, B1S1, B1S2, B1S3, B1S4, B1S1B1, B1S1B2, TextGreenBold, ButtonBlack, ButtonUnderlined, ButtonRed, 
-  B2S1U, B2S1, B2S1B1, B2S1B2, B2S2, TextBlackBold, B2S3, B2S3B1, B2S3B2, TextGreen,
-  B3S1U, B3S1, B3S1B1, B3S1B2, B3S2, B3S3, B3S4
-} from '../styled/ShippingStyled.jsx';
+import * as SS from '../styled/ShippingStyled.jsx';
 
 class Shipping extends React.Component {
   constructor(props) {
@@ -13,83 +11,94 @@ class Shipping extends React.Component {
   }
 
   render() {
-    return(
-      <Container>
-        <B1>
-            <B1S1U>
-              <B1S1>
-                  <B1S1B1>
-                    <TextGreenBold>Pick up today</TextGreenBold> at 
-                    <div>
-                      <ButtonBlack>Ballston</ButtonBlack>
-                    </div>
-                  </B1S1B1>
-                  <B1S1B2>
-                    <ButtonUnderlined>Edit Store</ButtonUnderlined>
-                  </B1S1B2>
-              </B1S1>
-              <B1S2>
-                <ButtonRed>Pick it up</ButtonRed>
-              </B1S2>
-            </B1S1U>
-          <B1S3>
+    const { location } = this.props.store.products[this.props.productId];
+    return (
+      <SS.Container>
+        <SS.B1>
+          <SS.B1S1U>
+            <SS.B1S1>
+              <SS.B1S1B1>
+                <SS.TextGreenBold>Pick up today</SS.TextGreenBold>
+                {' '}
+                at
+                <div>
+                  <SS.ButtonBlack>{ this.props.store.storeName }</SS.ButtonBlack>
+                </div>
+              </SS.B1S1B1>
+              <SS.B1S1B2>
+                <SS.ButtonUnderlined>Edit Store</SS.ButtonUnderlined>
+              </SS.B1S1B2>
+            </SS.B1S1>
+            <SS.B1S2>
+              <SS.ButtonRed>Pick it up</SS.ButtonRed>
+            </SS.B1S2>
+          </SS.B1S1U>
+          <SS.B1S3>
             Ready tomorrow for pickup inside the store.
-          </B1S3>
-          <B1S4>
-            Aisle B21
-          </B1S4>
-        </B1>
-        <B2>
-          <B2S1U>
-              <B2S1>
-                  <B2S1B1>
-                    <TextGreenBold>Same Day <br />Delivery</TextGreenBold>
-                    &nbsp;to&nbsp; 
-                    <TextBlackBold>22204</TextBlackBold>
-                  </B2S1B1>
-                  <B2S1B2>
-                    <ButtonUnderlined>Enter Zip Code</ButtonUnderlined>
-                  </B2S1B2>
-              </B2S1>
-              <B2S2>
-                <ButtonRed>Deliver it</ButtonRed>
-              </B2S2>
-            </B2S1U>
-            <B2S3>
-              <B2S3B1>
-                <TextGreen>Get it as soon as 9am tomorrow</TextGreen> with Shipt
-              </B2S3B1>
-              <B2S3B2>
-                Free with membership or $9.99/order
-                <br />
-                <ButtonUnderlined>Learn more</ButtonUnderlined>
-              </B2S3B2>
-            </B2S3>
-        </B2>
-        <B3>
-          <B3S1U>
-            <B3S1>
-              <B3S1B1>
-                <TextGreenBold>Deliver</TextGreenBold>
-                &nbsp;to&nbsp; 
-                <TextBlackBold>22204</TextBlackBold>
-              </B3S1B1>
-              <B3S1B2>
-                <ButtonUnderlined>Enter Zip Code</ButtonUnderlined>
-              </B3S1B2>
-            </B3S1>
-            <B3S2>
-              <ButtonRed>Ship it</ButtonRed>
-            </B3S2>
-          </B3S1U>
-          <B3S3>
+          </SS.B1S3>
+          <SS.B1S4>
+            { location}
+          </SS.B1S4>
+        </SS.B1>
+        <SS.B2>
+          <SS.B2S1U>
+            <SS.B2S1>
+              <SS.B2S1B1>
+                <SS.TextGreenBold>
+                  Same Day
+                  <br />
+                  Delivery
+                </SS.TextGreenBold>
+                    &nbsp;to&nbsp;
+                <SS.TextBlackBold>{this.props.zip}</SS.TextBlackBold>
+              </SS.B2S1B1>
+              <SS.B2S1B2>
+                <SS.ButtonUnderlined>Enter Zip Code</SS.ButtonUnderlined>
+              </SS.B2S1B2>
+            </SS.B2S1>
+            <SS.B2S2>
+              <SS.ButtonRed>Deliver it</SS.ButtonRed>
+            </SS.B2S2>
+          </SS.B2S1U>
+          <SS.B2S3>
+            <SS.B2S3B1>
+              <SS.TextGreen>Get it as soon as 9am tomorrow</SS.TextGreen>
+              {' '}
+              with Shipt
+            </SS.B2S3B1>
+            <SS.B2S3B2>
+              Free with membership or $9.99/order
+              <br />
+              <SS.ButtonUnderlined>Learn more</SS.ButtonUnderlined>
+            </SS.B2S3B2>
+          </SS.B2S3>
+        </SS.B2>
+        <SS.B3>
+          <SS.B3S1U>
+            <SS.B3S1>
+              <SS.B3S1B1>
+                <SS.TextGreenBold>Deliver</SS.TextGreenBold>
+                &nbsp;to&nbsp;
+                <SS.TextBlackBold>{this.props.zip}</SS.TextBlackBold>
+              </SS.B3S1B1>
+              <SS.B3S1B2>
+                <SS.ButtonUnderlined>Enter Zip Code</SS.ButtonUnderlined>
+              </SS.B3S1B2>
+            </SS.B3S1>
+            <SS.B3S2>
+              <SS.ButtonRed>Ship it</SS.ButtonRed>
+            </SS.B3S2>
+          </SS.B3S1U>
+          <SS.B3S3>
             Order by 12:00pm tomorrow
-          </B3S3>
-          <B3S4>
-            <TextGreen>Get it by Sat, May 22</TextGreen> with free 2-day shipping on $35 orders
-          </B3S4>
-        </B3>
-      </Container>
+          </SS.B3S3>
+          <SS.B3S4>
+            <SS.TextGreen>Get it by Sat, May 22</SS.TextGreen>
+            {' '}
+            with free 2-day shipping on $35 orders
+          </SS.B3S4>
+        </SS.B3>
+      </SS.Container>
     );
   }
 }

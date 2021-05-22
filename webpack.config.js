@@ -22,24 +22,24 @@ module.exports = {
           ],
           plugins: ['@babel/plugin-proposal-class-properties'],
         },
-      },      
+      },
       {
         test: /\.svg$/,
         use: [
-          "babel-loader",
+          'babel-loader',
           {
-            loader: "react-svg-loader",
+            loader: 'react-svg-loader',
             options: {
               svgo: {
                 plugins: [
-                  { removeTitle: false }
+                  { removeTitle: false },
                 ],
-                floatPrecision: 2
-              }
-            }
-          }
-        ]
-      }
+                floatPrecision: 2,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
 };
