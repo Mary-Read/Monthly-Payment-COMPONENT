@@ -1,7 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import * as SS from '../styled/ShippingStyled.jsx';
+import BoxTwo from './BoxTwo.jsx';
 
 class Shipping extends React.Component {
   constructor(props) {
@@ -40,39 +42,7 @@ class Shipping extends React.Component {
             { location}
           </SS.B1S4>
         </SS.B1>
-        <SS.B2>
-          <SS.B2S1U>
-            <SS.B2S1>
-              <SS.B2S1B1>
-                <SS.TextGreenBold>
-                  Same Day
-                  <br />
-                  Delivery
-                </SS.TextGreenBold>
-                    &nbsp;to&nbsp;
-                <SS.TextBlackBold>{this.props.zip}</SS.TextBlackBold>
-              </SS.B2S1B1>
-              <SS.B2S1B2>
-                <SS.ButtonUnderlined>Enter Zip Code</SS.ButtonUnderlined>
-              </SS.B2S1B2>
-            </SS.B2S1>
-            <SS.B2S2>
-              <SS.ButtonRed>Deliver it</SS.ButtonRed>
-            </SS.B2S2>
-          </SS.B2S1U>
-          <SS.B2S3>
-            <SS.B2S3B1>
-              <SS.TextGreen>Get it as soon as 9am tomorrow</SS.TextGreen>
-              {' '}
-              with Shipt
-            </SS.B2S3B1>
-            <SS.B2S3B2>
-              Free with membership or $9.99/order
-              <br />
-              <SS.ButtonUnderlined>Learn more</SS.ButtonUnderlined>
-            </SS.B2S3B2>
-          </SS.B2S3>
-        </SS.B2>
+        <BoxTwo {...this.props} />
         <SS.B3>
           <SS.B3S1U>
             <SS.B3S1>

@@ -341,6 +341,42 @@ color: rgb(51, 51, 51);
 /* Positioning */
 display: inline;
 `;
+// Edit Zip Button Box
+const E1 = styled.button`
+button .Button-bwu3xu-0 gFxyKi ButtonWithIconLegacy-jpu2t7-0 hFefvF h-padding-h-none {
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 22.8571px;
+	text-decoration: none solid rgb(51, 51, 51);
+	text-align: center;
+	text-indent: 0px;
+	text-transform: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+	color: rgb(51, 51, 51);
+
+	/* Box */
+	height: 46px;
+	width: 180px;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-top: 1px solid rgba(0, 0, 0, 0);
+	border-right: 1px solid rgba(0, 0, 0, 0);
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	border-left: 1px solid rgba(0, 0, 0, 0);
+	margin: 0px;
+	padding: 12px 0px;
+`;
 
 const B2S1U = B1S1U;
 const B2S1 = B1S1;

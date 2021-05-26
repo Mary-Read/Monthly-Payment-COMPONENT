@@ -35,12 +35,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div>
         <Page />
         {/* <Banner /> */}
         { this.state.isLoaded ? <Shipping {...this.state} /> : <></>}
-      </>
+      </div>
     );
   }
 }
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('shipping'));
