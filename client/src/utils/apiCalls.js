@@ -1,15 +1,21 @@
 import $ from 'jquery';
 
-const getPosition = () => new Promise((res, rej) => {
-  navigator.geolocation.getCurrentPosition(res, rej);
+const getPosition = () => new Promise((res) => {
+  const failedGeolocation = (error) => {
+    // eslint-disable-next-line no-console
+    console.log(error);
+    res({ coords: { latitude: 38.8622374, longitude: -77.064630 } });
+  };
+  navigator.geolocation.getCurrentPosition(res, failedGeolocation);
 });
 
 const getStores = () => new Promise((resolve, reject) => {
   getPosition()
     .then((position) => {
+      const urlprefix = window.location.origin;
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:4000/shipping/closestStores',
+        url: `${urlprefix}/shipping/closestStores`,
         contentType: 'application/json',
         data: JSON.stringify({
           lat: position.coords.latitude,
@@ -28,12 +34,27 @@ const getStores = () => new Promise((resolve, reject) => {
     });
 });
 
+const getStoresZip = (zip) => new Promise((resolve, reject) => {
+  const urlprefix = window.location.origin;
+  $.ajax({
+    type: 'GET',
+    url: `${urlprefix}/shipping/closestStores/${zip}`,
+    success: (data) => {
+      resolve(data);
+    },
+    error: (error) => {
+      reject(error);
+    },
+  });
+});
+
 const getZip = () => new Promise((resolve, reject) => {
   getPosition()
     .then((position) => {
+      const urlprefix = window.location.origin;
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:4000/shipping/zipcode',
+        url: `${urlprefix}/shipping/zipcode`,
         contentType: 'application/json',
         data: JSON.stringify({
           lat: position.coords.latitude,
@@ -54,5 +75,6 @@ const getZip = () => new Promise((resolve, reject) => {
 
 export {
   getStores,
+  getStoresZip,
   getZip,
 };

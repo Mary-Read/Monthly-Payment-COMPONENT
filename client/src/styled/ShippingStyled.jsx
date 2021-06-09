@@ -38,11 +38,11 @@ background-position: 0% 0%;
 color: rgb(51, 51, 51);
 
 /* Box */
-height: 23%;
+height: 17%;
 width: 100%;
 margin: 0px 0px 12px;
 padding: 12px 16px;
-max-height: none;
+max-height: 40%;
 min-height: 0px;
 max-width: none;
 min-width: 0px;
@@ -274,6 +274,9 @@ height: 50%;
 width: 45%;
 padding: 0;
 border: none;
+
+/* Miscellaneous */
+cursor: pointer;
 `;
 
 const ButtonUnderlined = styled.button`
@@ -293,6 +296,9 @@ background: none;
 height: 77%;
 padding: 0;
 border: none;
+
+/* Miscellaneous */
+cursor: pointer;
 `;
 const ButtonRed = styled.button`
 /* Font & Text */
@@ -315,16 +321,15 @@ width: 139px;
 border: 1px solid rgb(170, 0, 0);
 margin: 0px 0px 8px;
 padding: 0px 8px;
-max-height: none;
-min-height: 0px;
-max-width: none;
-min-width: 0px;
 
 /* Effects */
 border-radius: 4px;
 
 /* Positioning */
 float: right;
+
+/* Miscellaneous */
+cursor: pointer;
 `;
 const TextBlackBold = styled.span`
 /* Font & Text */
@@ -341,17 +346,198 @@ color: rgb(51, 51, 51);
 /* Positioning */
 display: inline;
 `;
-// Edit Zip Button Box
-const E1 = styled.button`
-button .Button-bwu3xu-0 gFxyKi ButtonWithIconLegacy-jpu2t7-0 hFefvF h-padding-h-none {
+
+// Edit Zip 1
+const E1 = styled.div`
 	/* Font & Text */
 	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
+	line-height: 22.856px;
+	text-decoration: none solid rgb(51, 51, 51);
+	word-spacing: 0px;
+
+	/* Box */
+	height: 46px;
+	height: max-content;
+
+`;
+
+// Edit Zip Input Box
+const E1B = styled.button`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 22.8571px;
+	text-decoration: none solid rgb(51, 51, 51);
+	text-align: left;
+	vertical-align: middle;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-color: rgba(0, 0, 0, 0);
+	color: rgb(51, 51, 51);
+
+	/* Box */
+	height: 46px;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0);
+	padding: 12px 0px;
+
+	/* Misc */
+	cursor: pointer
+`;
+const E1BS1I = styled.img`
+	display: block;
+	width:14px;
+	height:14px;
+	margin:auto;
+`;
+
+const E1BS1 = styled.span`
+	/* Font & Text */
+	font-size: 14px;
+	text-decoration: underline;
+
+	/* Box */
+	display: inline-block;
+
+`;
+const E1BS2 = styled.span`
+	/* Font & Text */
+	font-size: 14px;
+	text-decoration: underline;
+
+	/* Box */
+	padding: 12px
+`;
+
+// Edit Zip Input Box
+const E1I = styled.div`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 22.856px;
+	text-decoration: none solid rgb(51, 51, 51);
+	text-align: left;
+	word-spacing: 0px;
+
+	/* Box */
+	height: 80px;
+	width: 100%;
+	padding: 16px 0px 0px;
+
+	/* Positioning */
+	display: block;
+`;
+const E1II = styled.input`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 22.856px;
+	text-decoration: none solid rgb(51, 51, 51);
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-color: rgb(255, 255, 255);
+	background-position: 0% 0%;
+	color: rgb(51, 51, 51);
+
+	/* Box */
+	height: 42px;
+	width: 245px;
+	border: 1px solid rgb(136, 136, 136);
+	padding: 9px 12px;
+
+	/* Positioning */
+	position: relative;
+	display: inline-block;
+
+	/* Miscellaneous */
+	cursor: text;
+`;
+const E1IT = styled.span`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 17.142px;
+	text-decoration: none solid rgb(102, 102, 102);
+	text-align: left;
+	word-spacing: 0px;
+
+	/* Box */
+	height: 17px;
+	width: 100%;
+	padding: 0px 0px 5px 0px;
+
+	/* Positioning */
+	display: block;
+`;
+const E1B2 = styled.div`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 22.856px;
+	text-decoration: none solid rgb(51, 51, 51);
+	text-align: left;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-color: rgba(0, 0, 0, 0);
+	background-position: 0% 0%;
+	color: rgb(51, 51, 51);
+
+	/* Box */
+	height: 40px;
+	width: 245px;
+	padding: 12px 0px;
+
+	/* Positioning */
+	display: block;
+`;
+const E1B2B1 = styled.button`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 17.1429px;
+	text-decoration: none solid rgb(255, 255, 255);
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-color: rgb(170, 0, 0);
+	color: rgb(255, 255, 255);
+
+	/* Box */
+	height: 31px;
+	width: 62.4688px;
+	border: 1px solid rgb(170, 0, 0);
+	margin: 0px;
+	padding: 6px 12px;
+
+	/* Positioning */
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	display: inline-block;
+
+	/* Miscellaneous */
+	cursor: pointer;
+	border-radius: 4px;
+`;
+
+const E1B2B2 = styled.button`
+	/* Font & Text */
+	font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
 	letter-spacing: normal;
-	line-height: 22.8571px;
+	line-height: 17.1429px;
 	text-decoration: none solid rgb(51, 51, 51);
 	text-align: center;
 	text-indent: 0px;
@@ -362,20 +548,60 @@ button .Button-bwu3xu-0 gFxyKi ButtonWithIconLegacy-jpu2t7-0 hFefvF h-padding-h-
 
 	/* Color & Background */
 	background-attachment: scroll;
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgb(244, 244, 244);
 	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
 	color: rgb(51, 51, 51);
 
 	/* Box */
-	height: 46px;
-	width: 180px;
-	border: 1px solid rgba(0, 0, 0, 0);
-	border-top: 1px solid rgba(0, 0, 0, 0);
-	border-right: 1px solid rgba(0, 0, 0, 0);
-	border-bottom: 1px solid rgba(0, 0, 0, 0);
-	border-left: 1px solid rgba(0, 0, 0, 0);
-	margin: 0px;
-	padding: 12px 0px;
+	height: 31px;
+	width: 61.25px;
+	border: 1px solid rgb(51, 51, 51);
+	border-top: 1px solid rgb(51, 51, 51);
+	border-right: 1px solid rgb(51, 51, 51);
+	border-bottom: 1px solid rgb(51, 51, 51);
+	border-left: 1px solid rgb(51, 51, 51);
+	margin: 0px 0px 0px 12px;
+	padding: 6px 12px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	/* Positioning */
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	float: none;
+	display: inline-block;
+	clear: none;
+	z-index: auto;
+
+	/* List */
+	list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	/* Table */
+	border-collapse: separate;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto;
+
+	/* Miscellaneous */
+	overflow: visible;
+	cursor: pointer;
+	visibility: visible;
+
+	/* Effects */
+	transform: none;
+	transition: all 0s ease 0s;
+	box-sizing: border-box;
+	border-radius: 4px;
 `;
 
 const B2S1U = B1S1U;
@@ -423,4 +649,15 @@ export {
   B3S2,
   B3S3,
   B3S4,
+  E1,
+  E1B,
+  E1BS1,
+  E1BS1I,
+  E1BS2,
+  E1I,
+  E1II,
+  E1IT,
+  E1B2,
+  E1B2B1,
+  E1B2B2,
 };

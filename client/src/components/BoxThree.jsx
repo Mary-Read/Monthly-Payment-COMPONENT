@@ -47,31 +47,25 @@ class BoxTwo extends React.Component {
   render() {
     const { editZipClick } = this.state;
     return (
-      <SS.B2>
-        <SS.B2S1U>
-          <SS.B2S1>
-            <SS.B2S1B1>
-              <SS.TextGreenBold>
-                Same Day&nbsp;
-                {!editZipClick && <br /> }
-                Delivery
-              </SS.TextGreenBold>
-                      &nbsp;to&nbsp;
+      <SS.B3>
+        <SS.B3S1U>
+          <SS.B3S1>
+            <SS.B3S1B1>
+              <SS.TextGreenBold>Deliver</SS.TextGreenBold>
+              &nbsp;to&nbsp;
               <SS.TextBlackBold>{this.props.zip}</SS.TextBlackBold>
-            </SS.B2S1B1>
-            <SS.B2S1B2>
-              <SS.ButtonUnderlined onClick={this.editZipClick}>
-                Edit Zip Code
-              </SS.ButtonUnderlined>
-            </SS.B2S1B2>
-          </SS.B2S1>
+            </SS.B3S1B1>
+            <SS.B3S1B2>
+              <SS.ButtonUnderlined onClick={this.editZipClick}>Edit Zip Code</SS.ButtonUnderlined>
+            </SS.B3S1B2>
+          </SS.B3S1>
           {!editZipClick
             && (
-            <SS.B2S2>
+            <SS.B3S2>
               <SS.ButtonRed>Deliver it</SS.ButtonRed>
-            </SS.B2S2>
+            </SS.B3S2>
             )}
-        </SS.B2S1U>
+        </SS.B3S1U>
         {editZipClick
           && (
           <SS.E1>
@@ -107,20 +101,18 @@ class BoxTwo extends React.Component {
           )}
         {!editZipClick
           && (
-          <SS.B2S3>
-            <SS.B2S3B1>
-              <SS.TextGreen>Get it as soon as 9am tomorrow</SS.TextGreen>
-              {' '}
-              with Shipt
-            </SS.B2S3B1>
-            <SS.B2S3B2>
-              Free with membership or $9.99/order
-              <br />
-              <SS.ButtonUnderlined>Learn more</SS.ButtonUnderlined>
-            </SS.B2S3B2>
-          </SS.B2S3>
+            <div>
+              <SS.B3S3>
+                Order by 12:00pm tomorrow
+              </SS.B3S3>
+              <SS.B3S4>
+                <SS.TextGreen>Get it by Sat, May 22</SS.TextGreen>
+                {' '}
+                with free 2-day shipping on $35 orders
+              </SS.B3S4>
+            </div>
           )}
-      </SS.B2>
+      </SS.B3>
     );
   }
 }
