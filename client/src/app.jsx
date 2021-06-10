@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Banner from './components/Banner.jsx';
-import ClipLoader from "react-spinners/ClipLoader";
+import ClipLoader from 'react-spinners/ClipLoader';
 import Shipping from './components/Shipping.jsx';
 import Page from './styled/Page.jsx';
 import initData from './utils/initData';
@@ -72,9 +72,10 @@ class App extends React.Component {
             {...this.state}
           />
         ) : <></>}
-        <ClipLoader color="#aa0000" loading={!this.state.isLoaded} size={100} css={'margin: 120px 60px'}/>
+        <ClipLoader color="#aa0000" loading={!this.state.isLoaded} size={100} css="margin: 120px 60px" />
       </div>
     );
   }
 }
+
 ReactDOM.render(<App />, document.getElementById('shipping'));
