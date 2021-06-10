@@ -12,7 +12,7 @@ const getPosition = () => new Promise((res) => {
 const getStores = () => new Promise((resolve, reject) => {
   getPosition()
     .then((position) => {
-      const urlprefix = (window.location.origin).slice(0, ((window.location.origin).lastIndexOf(':')));
+      const urlprefix = (window.location.hostname === 'localhost') ? 'http://localhost' : 'https://ec2-18-116-227-34.us-east-2.compute.amazonaws.com';
       $.ajax({
         type: 'POST',
         url: `${urlprefix}:4000/shipping/closestStores`,
@@ -35,7 +35,7 @@ const getStores = () => new Promise((resolve, reject) => {
 });
 
 const getStoresZip = (zip) => new Promise((resolve, reject) => {
-  const urlprefix = (window.location.origin).slice(0, ((window.location.origin).lastIndexOf(':')));
+  const urlprefix = (window.location.hostname === 'localhost') ? 'http://localhost' : 'https://ec2-18-116-227-34.us-east-2.compute.amazonaws.com';
   $.ajax({
     type: 'GET',
     url: `${urlprefix}:4000/shipping/closestStores/${zip}`,
@@ -51,7 +51,7 @@ const getStoresZip = (zip) => new Promise((resolve, reject) => {
 const getZip = () => new Promise((resolve, reject) => {
   getPosition()
     .then((position) => {
-      const urlprefix = (window.location.origin).slice(0, ((window.location.origin).lastIndexOf(':')));
+      const urlprefix = (window.location.hostname === 'localhost') ? 'http://localhost' : 'https://ec2-18-116-227-34.us-east-2.compute.amazonaws.com';
       $.ajax({
         type: 'POST',
         url: `${urlprefix}:4000/shipping/zipcode`,
