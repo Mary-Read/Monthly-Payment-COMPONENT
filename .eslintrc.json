@@ -10,6 +10,8 @@
         "plugin:react/recommended",
         "airbnb"
     ],
+    "ignorePatterns": ["shipping.js"],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -26,6 +28,8 @@
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
         "jest/valid-expect": "error",
-        "import/extensions": 0
+        "import/extensions": 0,
+        "no-tabs": 0
+        // "allowIndentationTabs": "true"
     }
 }

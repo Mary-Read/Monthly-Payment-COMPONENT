@@ -8,7 +8,6 @@ const router = express.Router();
 
 const app = express();
 const dirPath = path.join(__dirname, '/../client/dist');
-
 app.use('/shipping/', router);
 
 app.use(express.static(dirPath));
