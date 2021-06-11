@@ -1,12 +1,11 @@
-import { getStoresZip } from './apiCalls.js';
+import { getStoreZip } from './apiCalls.js';
 
 const editZipData = (zip) => new Promise((resolve, reject) => {
   const stateData = {};
-  getStoresZip(zip)
+  getStoreZip(zip)
     .then((data) => {
       // eslint-disable-next-line prefer-destructuring
-      stateData.store = data[0];
-      stateData.stores = data;
+      stateData.store = data;
       stateData.zip = zip;
       // eslint-disable-next-line radix
       let id = parseInt((window.location.pathname).split('/').pop());

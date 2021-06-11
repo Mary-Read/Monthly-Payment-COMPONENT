@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import * as SS from '../styled/ShippingStyled.jsx';
+
+const dayjs = require('dayjs');
 
 class BoxTwo extends React.Component {
   constructor(props) {
@@ -106,7 +109,7 @@ class BoxTwo extends React.Component {
                 Order by 12:00pm tomorrow
               </SS.B3S3>
               <SS.B3S4>
-                <SS.TextGreen>Get it by Sat, May 22</SS.TextGreen>
+                <SS.TextGreen>Get it by {dayjs().add(3, 'day').format('ddd, MMMM D')}</SS.TextGreen>
                 {' '}
                 with free 2-day shipping on $35 orders
               </SS.B3S4>

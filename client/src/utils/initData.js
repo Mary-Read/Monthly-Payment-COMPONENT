@@ -1,30 +1,27 @@
-import { getStores, getZip } from './apiCalls.js';
+import { getStore, getZip } from './apiCalls.js';
 
-const initData = () => new Promise((resolve, reject) => {
+const initData = () => new Promise((resolve) => {
   const stateData = {};
-  getStores()
+  const coords = { latitude: 38.8622374, longitude: -77.064630 };
+  getStore(coords)
     .then((data) => {
       // eslint-disable-next-line prefer-destructuring
-      stateData.store = data[0];
-      stateData.stores = data;
+      stateData.store = data;
+    });
+  getZip(coords)
+    .then((data) => {
+      stateData.zip = data.zipcode;
     })
     .then(() => {
-      getZip()
-        .then((data) => {
-          stateData.zip = data.zipcode;
-        })
-        .then(() => {
-          // eslint-disable-next-line radix
-          let id = parseInt((window.location.pathname).split('/').pop());
-          if (!id) {
-            id = 0;
-          }
-          stateData.productId = id;
-        })
-        .then(() => resolve(stateData));
+      // eslint-disable-next-line radix
+      let id = parseInt((window.location.pathname).split('/').pop());
+      if (!id) {
+        id = 0;
+      }
+      stateData.productId = id;
     })
-    .catch((err) => {
-      reject(err);
+    .then(() => {
+      resolve(stateData);
     });
 });
 
