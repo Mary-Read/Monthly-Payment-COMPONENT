@@ -10,16 +10,25 @@ import Shipping from './components/Shipping.jsx';
 import Page from './styled/Page.jsx';
 import initData from './utils/initData';
 import editZipData from './utils/editZipData';
+import currentLocation from './utils/currentLocation';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // productId: 0,
-      // store: {},
-      // stores: [],
-      // zip: 11111,
-      isLoaded: false,
+      productId: 0,
+      store: {
+        storeName: '',
+        products: [
+          {
+            id: 0,
+            location: 'Aisle',
+            stock: 1,
+          },
+        ],
+      },
+      zip: '22202',
+      isLoaded: true,
     };
     initData()
       .then((data) => {
@@ -35,7 +44,7 @@ class App extends React.Component {
 
   resetLocation = () => {
     this.setState({ isLoaded: false });
-    initData()
+    currentLocation()
       .then((data) => {
         // eslint-disable-next-line no-param-reassign
         data.isLoaded = true;

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const shrinkRay = require('shrink-ray-current');
 const db = require('./database/stores');
 const gm = require('./api/googleMaps');
 
@@ -8,6 +9,8 @@ const router = express.Router();
 
 const app = express();
 const dirPath = path.join(__dirname, '/../client/dist');
+
+app.use(shrinkRay());
 app.use('/shipping/', router);
 
 app.use(express.static(dirPath));
